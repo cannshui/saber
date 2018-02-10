@@ -1,0 +1,55 @@
+Saber Change Log.
+
+======================= Saber 1.1.2 =======================
+
+New Features:
+
+ * Add article catalog implementation.
+ * Images are placed at Github.
+
+======================= Saber 1.1.1 =======================
+
+New Features:
+
+ * Add *to top* and *to bottom* link.
+ * Also update *read count* on the page after updated to server.
+
+Bug Fixes:
+
+ 3. Search by tag has a error.
+	Fix: Logic error while building tag array. [ArticleDaoImpl.setArticleTag()]
+
+Optimizations:
+
+ - Fix worlds spell error on error page.
+ - A little fix on about page.
+
+======================= Saber 1.1.0 =======================
+
+New Features:
+
+ * Change site logo and title.
+ * Enhance article tag implementation.
+ * `CTRL + ALT + F` expand left content area.
+ * Use the same poster style for posters, in 'new', 'board', 'detail' page.
+
+Bug Fixes:
+
+ 2. While no board messages, the first time leaving a message would
+	not show on page.
+	Fix: Add a check for this case. [custom.js]
+
+ 1. step-bar in some page, has no links on some steps.
+	Fix: Add link to step.
+
+======================= Saber 1.0.0 =======================
+
+First MIT release.
+
+Main Futures:
+
+ 1. List and Upload articles.
+ 2. Search articles by type(personal and translation) or tag(Linux, Java, etc).
+ 3. Show article detail.
+ 4. Add comments to article.
+ 5. Message board.

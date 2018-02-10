@@ -1,0 +1,41 @@
+/* table. */
+@charset "utf-8";
+
+@import url('reset.css');
+
+:focus {
+	outline: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.ui-table {
+	line-height: 24px;
+	width: 100%;
+}
+
+.ui-table tr td {
+	background-color: #fff;
+}
+
+.ui-table tr th {
+	text-align: center;
+	background: #f7fbfe url(../images/tabletopbg.jpg) repeat-x 0 bottom;
+	height: 24px;
+	color: #000;
+	font-weight: 500;
+}
+
+.ui-table, .ui-table tr td, .ui-table tr th {
+	border: 1px solid #47aef0;
+}
+
+.ui-table tr td, .ui-table tr th {
+	padding: 0 4px;
+}
+
+.ui-table tr.double td {
+	background-color: #fafcfd;
+}

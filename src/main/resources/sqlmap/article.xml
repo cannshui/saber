@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="article">
+
+	<resultMap id="articleMap" class="dn.cs.saber.domain.Article">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="author" column="author" select="getUser" />
+		<result property="preview" column="preview" />
+		<result property="hitCount" column="hit_count" />
+		<result property="readCount" column="read_count" />
+		<result property="usefulCount" column="useful_count" />
+		<result property="ratingCount" column="rating_count" />
+		<result property="rating" column="rating" />
+		<result property="type" column="type" />
+		<result property="tag" column="tag" />
+		<result property="commentCount" column="comment_count" />
+		<result property="publishTime" column="cts" />
+		<result property="rePublishTime" column="uts" />
+	</resultMap>
+
+	<resultMap id="commentMap" class="dn.cs.saber.domain.Comment">
+		<result property="id" column="id" />
+		<result property="article" column="article" />
+		<result property="user" column="user" select="getUser" />
+		<result property="content" column="content" />
+		<!-- <result property="replys" column="id" select="getCommentReplys" /> -->
+		<result property="reply" column="reply" />
+		<result property="cts" column="cts" />
+		<result property="uts" column="uts" />
+	</resultMap>
+
+	<select id="getArticles" resultMap="articleMap">
+		SELECT id, title, author, file, preview, hit_count, read_count, comment_count, useful_count,
+		rating_count, rating, type, tag, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM article
+	</select>
+
+	<select id="getArticle" resultMap="articleMap">
+		SELECT id, title, author, file, preview, hit_count, read_count, comment_count, useful_count,
+		rating_count, rating, type, tag, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM article WHERE id = #id#
+	</select>
+
+	<select id="getArticlesNumber" resultClass="int">
+		SELECT COUNT(1) FROM article
+	</select>
+
+	<select id="getPagedArticles" parameterClass="dn.cs.saber.vo.PageData" resultMap="articleMap">
+		SELECT id, title, author, file, preview, hit_count, read_count, comment_count, useful_count,
+		rating_count, rating, type, tag, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM article ORDER BY uts DESC LIMIT #index#, #size#
+	</select>
+
+	<!-- Is `concat` here dangerous? -->
+	<insert id="insertArticle" parameterClass="dn.cs.saber.domain.Article">
+		INSERT INTO article (title, author, preview, type, tag)
+			VALUES (#title#, #author.id#, #preview#, #type#, CONCAT(':', REPLACE(#tag#, ',', '::'), ':'))
+		<selectKey resultClass="int" keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="increaseHitCount" parameterClass="int">
+		UPDATE article SET hit_count = hit_count + 1 WHERE id = #id#
+	</update>
+
+	<update id="increaseReadCount" parameterClass="int">
+		UPDATE article SET read_count = read_count + 1 WHERE id = #id#
+	</update>
+
+	<update id="increaseRating" parameterClass="java.util.HashMap">
+		UPDATE article SET
+			rating = ROUND((rating * rating_count + #rating#) / (rating_count + 1), 1),
+			rating_count = rating_count + 1
+		WHERE id = #id#
+	</update>
+
+	<update id="decreaseRating" parameterClass="java.util.HashMap">
+		UPDATE article SET
+			rating = ROUND((rating * rating_count - #rating#) / (rating_count - 1), 1),
+			rating_count = rating_count - 1
+		WHERE id = #id#
+	</update>
+
+	<select id="getPagedArticlesByCatNumber" parameterClass="java.util.HashMap" resultClass="int">
+		SELECT COUNT(*) FROM article
+		<dynamic prepend="WHERE">
+			<isNotNull property="type" prepend="AND">
+				type = #type#
+			</isNotNull>
+			<isNotNull property="tag" prepend="AND">
+				tag LIKE CONCAT('%:', #tag#, ':%')
+			</isNotNull>
+		</dynamic>
+	</select>
+
+	<select id="getPagedArticlesByCat" parameterClass="java.util.HashMap" resultMap="articleMap">
+		SELECT id, title, author, file, preview, hit_count, read_count, comment_count, useful_count,
+		rating_count, rating, type, tag, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM article
+		<dynamic prepend="WHERE">
+			<isNotNull property="type" prepend="AND">
+				type = #type#
+			</isNotNull>
+			<isNotNull property="tag" prepend="AND">
+				tag LIKE CONCAT('%:', #tag#, ':%')
+			</isNotNull>
+		</dynamic>
+		ORDER BY uts DESC
+		LIMIT #index#, #size#
+	</select>
+
+	<select id="getArticleComments" resultMap="commentMap">
+		SELECT id, article, user, reply, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM comment WHERE article = #article# ORDER BY cts
+	</select>
+
+	<select id="getCommentReplys" resultMap="commentMap">
+		SELECT id, article, user, reply, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM comment WHERE reply = #id#
+	</select>
+
+	<insert id="insertComment" parameterClass="dn.cs.saber.domain.Comment">
+		INSERT INTO comment (article, user, content, reply)
+			VALUES (#article#, #user.id#, #content#, #reply#)
+		<selectKey resultClass="int" keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<!-- Not used... -->
+	<select id="getArticleTags" resultClass="dn.cs.saber.domain.Tag">
+		SELECT * FROM tag WHERE id IN 
+		<iterate open="(" close=")" conjunction=",">
+			#tags[]#
+		</iterate>
+	</select>
+
+	<select id="getTags" resultClass="dn.cs.saber.domain.Tag">
+		SELECT * FROM tag ORDER BY RANDOM()
+	</select>
+</sqlMap>

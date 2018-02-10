@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="user">
+
+	<resultMap id="userMap" class="dn.cs.saber.domain.User">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="ip" column="ip" />
+		<result property="cts" column="cts" />
+		<result property="uts" column="uts" />
+	</resultMap>
+
+	<select id="getUser" resultMap="userMap">
+		SELECT id, name, email, ip, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM user WHERE id = #userId#
+	</select>
+
+	<select id="checkUserByEmail" parameterClass="String" resultClass="int">
+		SELECT id FROM user WHERE email = #email#
+	</select>
+
+	<select id="getUserByEmail" resultMap="userMap">
+		SELECT id, name, email, ip, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM user WHERE email = #email#
+	</select>
+
+	<select id="getUserByName" resultMap="userMap">
+		SELECT id, name, email, ip, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		FROM user WHERE name = #name#
+	</select>
+
+	<insert id="insertUser" parameterClass="dn.cs.saber.domain.User">
+		INSERT INTO user (name, email, ip) VALUES (#name#, #email#, #ip#)
+		<selectKey resultClass="int" keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+</sqlMap>

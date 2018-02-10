@@ -1,0 +1,172 @@
+@CHARSET "UTF-8";
+
+/* Override markdown setting. */
+body { font-size: 13px !important; font-family: Helvetica, 'Microsoft YaHei', Arial, Geneva, sans-serif; }
+
+/* Global container style. */
+.container { width: 1080px; text-align: left; margin: 0 auto; background: #F2F2F2; }
+/* error-i index-i */
+.container.index-i, .container.error-i {
+	text-align: center; width: 800px; margin-top: 150px !important; font-weight: 900;
+	padding: 25px 0; font-size: 20px; color: green; border-radius: 5px;
+}
+.container.error-i { color: red !important; }
+
+/* dncs-head style start. */
+.dncs-head { height: 100px; background: #405490; color: white; }
+.h-l-nichijou {
+	display: inline-block; width: 20px; height: 35px; background: lightgreen;
+	border-top-right-radius: 10px 20px; border-bottom-left-radius: 10px 20px;
+	margin-left: 10px; box-shadow: -3px -3px 2px white;
+}
+.dncs-head .h-logo { padding-top: 10px; margin-left: 10px; font-size: 20px; }
+.dncs-head .menu { margin-top: 15px; text-align: right; }
+.dncs-head .menu ul { margin: 0; }
+.dncs-head li { display: inline-block; font-size: 15px; font-weight: bold; margin-right: 20px; } 
+.dncs-head li a { color: white; }
+/* dncs-head style end. */
+
+/* step-bar style.*/
+.step-bar { color: #405490; font-weight: 700; font-size: 14px; margin: 10px 0 10px 22px; }
+.step-bar a { color: #405490; }
+
+/* container left style start. */
+.left {
+	background-color: white; margin: auto 25px; padding-left: 20px; padding-right: 20px;
+	width: 700px; float: left; border-top: 2px #405490 solid;
+}
+
+/* index page style start. */
+.article { margin-top: 20px; border: 1px solid lightblue; padding: 10px; border-radius: 5px; }
+.article .a-title { margin: 0px; height: 25px; line-height: 25px; height: 25px; }
+.article .a-author { font-weight: normal; font-size: 12px; margin: 5px auto; }
+.article .a-full-link { margin: 5px auto; }
+.article .article-tag span { display: inline-block; } 
+.article .a-other { font-size: 12px; }
+.article .a-other .a-o-left { display: inline-block; text-align: left; width: 48%; }
+.article .a-other .a-o-left .a-type {
+	display: inline-block; width: 40px; height: 20px; line-height: 20px; background-color: #405490;
+	color: white; border-radius: 3px; text-align: center;
+}
+.article .a-other .a-o-right { display: inline-block; text-align: right; width: 48%; }
+.article .a-other .a-o-right span { margin-left: 15px; }
+/* index page style end. */
+
+/* creator page style start. */
+.creator h5 { margin-top: 40px; }
+.creator input, .creator textarea { width: 700px; border: 0; background: #F2F2F2; border-radius: 3px; height: 24px; } 
+.creator .a-n-preview { margin: 0px; height: 140px; }
+.creator .tag { background: #F2F2F2; }
+.creator .tag span { margin-right: 10px; vertical-align: middle; display: inline-block; width: 35px; }
+.creator .tag input { margin: 0; width: 20px; height: 15px; vertical-align: middle; }
+ /* creator page style end. */
+
+/* detail page style start. */
+.detail .d-content .author-bar { height: 25px; line-height: 25px; text-align: right; font-size: 12px; color: grey; margin: 5px auto; }
+.detail .d-content .author-bar span { border-right: 1px solid grey; padding: 0 10px; }
+.detail .d-content .author-bar > :last-child {border: 0;}
+.detail .d-content .author-bar span a { cursor: pointer; text-decoration: none; }
+.detail .d-content .author-bar span a.rating-count { cursor: auto; }
+.detail .d-content .author-bar .a-rating {
+	display: inline-block; width: 10px; height: 12px; background: grey; margin-left: 5px;
+	border-top-right-radius: 5px 10px; border-bottom-left-radius: 5px 10px;
+}
+.detail .d-content .author-bar .a-rating-v { display: inline-block; width: 25px; text-align: center;}
+.detail .d-content .a-c-marker { float: right; font-size: 13px; color: green; }
+/* detail page style end. */
+
+/* both detail and board style start. */
+.comments { padding-bottom: 10px; border-top: 2px #ddd solid; }
+.comments h3 { font-size: 14px; font-weight: bold; color: black; padding-bottom: 3px; margin-bottom: 10px; }
+.comments .comment { border-bottom: 1px #ddd solid; margin: auto auto 10px 10px; padding-bottom: 5px; }
+.comments .comment .c-poster { margin: 0; padding: 0; }
+.comments .comment .c-poster .p-name { color: #405490; font-weight: bold; }
+.comments .comment .c-poster .p-time { color: grey; }
+.comments .comment .c-poster .p-reply-btn { float: right; color: #405490; font-size: 12px; font-weight: bold; cursor: pointer; }
+.comments .comment .c-poster .p-reply-btn:hover { text-decoration: none; }
+.comments .comment .c-content { margin: 5px 0 0 0; }
+.comments .comment .c-replies { padding-left: 25px; }
+.comments .comment .c-replies blockquote { margin: 5px 0 0 0; padding: 0 0 0 10px; }
+.comments .comment .c-replies p { margin: 5px auto; padding: 0; }
+.new-comment h3 { font-size: 15px; }
+.new-comment .comment-box { margin: 0px; width: 700px; height: 140px; border-radius: 3px; border: 0; background: #F2F2F2; }
+/* both detail and board style end. */
+
+/* `detail`, `board` and `creator` poster style start. */
+.poster { margin: 40px auto 40px; text-align: right; }
+.poster input { width: 200px; border: 0; background: #F2F2F2; border-radius: 3px; height: 24px; }
+.poster .form-group { position: relative; display: inline-block; }
+.poster .form-group label {
+	position: absolute; top: -10px; left: 10px; font-size: 10px; background-color: white; padding: 0px 5px;
+	line-height: 13px; overflow: hidden; display: none; border: 1px solid grey;
+}
+.poster .submit-btn {
+	display: inline-block; width: 60px; height: 25px; line-height: 25px; text-align: center; border-radius: 3px;
+	background-color: #405490; color: white; cursor: pointer;
+}
+.poster .submit-btn:hover { text-decoration: none; }
+/* `detail`, `board` and `creator` poster style end. */
+
+/* board page style start. */
+.board .new-comment .comment-box { height: 90px; }
+.board .new-comment .poster { margin: 20px auto 20px; }
+/* board page style end. */
+
+/* about page style start. */
+.about ul li.a-i-title { font-size: 20px; font-weight: bold; color: #405490; }
+.about ul li.a-i-ex { list-style: none; font-size: 13px; color: #333; margin-bottom: 30px; }
+/* about page style end. */
+
+/* container left style end. */
+
+/* container right style start. */
+.right { width: 250px; float: right; margin-right: 25px; color: black; }
+.right .r-a-block { border-top: 2px #405490 solid; background: white; margin-bottom: 20px; }
+.right ul { list-style: none; margin: 0; padding: 0; }
+.right ul li {
+	line-height: 35px; height: 35px; margin: 0; padding: 0 0 0 10px; border-bottom: #999 1px solid;
+}
+.right ul > :last-child {border: 0;}
+.right .r-l-title {
+	margin: 0; padding: 0 0 0 10px; border-bottom: #999 1px solid; font-size: 14px;
+	line-height: 35px; height: 35px; font-weight: bold; vertical-align: bottom;
+}
+.right ul li span { display: inline-block; }
+.right ul li span.right-cat { float: left; }
+.right ul li span.right-cat-go { float: right; width: 30px; }
+.right .r-a-block .r-a-b-tags { margin-top: 10px; }
+.right .r-a-block .r-a-b-tags a code { font-size: 14px; margin: 0 4px; }
+/* container right style ended: */
+
+.page-bar { margin: 10px auto; text-align: center; }
+.page-bar a { display: inline-block; width: 20px; border-radius: 3px; }
+.page-bar a.p-current, .page-bar a:hover { background: lightblue; }
+
+.scroll-btn {
+	position: fixed; right: 5px; text-decoration: none; color: grey; font-size: 12px;
+	padding: 2px; width: 40px; height: 18px; line-height: 18px; text-align: center;
+	background-color: rgba(235, 235, 235, 0.80); text-shadow: 0px 0px 4px #fff; opacity: 0.5;
+}
+.scroll-btn:hover {
+	background-color: rgba(135, 135, 135, 0.50); opacity: 0.8; color: black; text-decoration: none;
+}
+.s-b-to-top { bottom: 45px; }
+.s-b-to-bottom { bottom: 15px; }
+
+.dncs-foot {
+	background: white; height: 50px; color: grey; margin-top: 50px; font-weight: 700;
+	text-align: center; line-height: 50px;
+}
+
+/* Custom settings. */
+.h3-title { font-size: 17px; font-weight: bolder; margin: 0; }
+.h3-title a { color: white; } 
+.h3-title a:hover { text-decoration: none; }
+.h5-title { font-size: 15px; font-weight: bolder; }
+
+/*
+ * Learn form http://yuilibrary.com/license/
+ * Seems a great style for clear float.
+ */
+.clearfix:after { content: "."; display: block; visibility: hidden; clear: both; height: 0px; }
+/* clearfix style end: */

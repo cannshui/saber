@@ -1,0 +1,12 @@
+.project
+.classpath
+.settings/
+.info
+*.swp
+target/
+
+# Uploaded markdown html files.
+src/main/webapp/WEB-INF/view/20*/
+
+# Platform dependency properties.
+src/main/resources/private.properties
