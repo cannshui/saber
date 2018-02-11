@@ -51,7 +51,7 @@ $(function() {
 				<div class="comment">
 					<p class="c-poster clearfix">
 						<span class="p-name"><span class="p-r-name"><c:if test="${not empty message.user.name}">${message.user.name}</c:if><c:if test="${empty message.user.name}">匿名用户</c:if></span></span>
-						<span class="p-time"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${message.createTime}" /></span>
+						<span class="p-time"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${message.cts}" /></span>
 						<a class="p-reply-btn" href="#new-comment" rel="${message.id}">回复</a>
 					</p>
 					<p class="c-content">${message.content}</p>
@@ -65,7 +65,7 @@ $(function() {
 									<c:if test="${not empty message.user.name}"><c:set var="messageUserName" value="${message.user.name}" /></c:if>
 									<c:if test="${empty message.user.name}"><c:set var="messageUserName" value="匿名用户" /></c:if>
 									<span class="p-name"><span class="p-r-name">${replyUserName}</span>@${messageUserName}</span>
-									<span class="p-time"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${reply.createTime}" /></span>
+									<span class="p-time"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${reply.cts}" /></span>
 									<a class="p-reply-btn" href="#new-comment" rel="${reply.id}">回复</a>
 								</p>
 								<p class="c-content">${reply.content}</p>

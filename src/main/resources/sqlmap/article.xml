@@ -55,10 +55,9 @@
 		FROM article ORDER BY uts DESC LIMIT #index#, #size#
 	</select>
 
-	<!-- Is `concat` here dangerous? -->
 	<insert id="insertArticle" parameterClass="dn.cs.saber.domain.Article">
 		INSERT INTO article (title, author, preview, type, tag)
-			VALUES (#title#, #author.id#, #preview#, #type#, CONCAT(':', REPLACE(#tag#, ',', '::'), ':'))
+			VALUES (#title#, #author.id#, #preview#, #type#, ':' || REPLACE(#tag#, ',', '::') || ':')
 		<selectKey resultClass="int" keyProperty="id">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
@@ -93,7 +92,7 @@
 				type = #type#
 			</isNotNull>
 			<isNotNull property="tag" prepend="AND">
-				tag LIKE CONCAT('%:', #tag#, ':%')
+				tag LIKE '%:' || #tag# || ':%'
 			</isNotNull>
 		</dynamic>
 	</select>
@@ -107,7 +106,7 @@
 				type = #type#
 			</isNotNull>
 			<isNotNull property="tag" prepend="AND">
-				tag LIKE CONCAT('%:', #tag#, ':%')
+				tag LIKE '%:' || #tag# || ':%'
 			</isNotNull>
 		</dynamic>
 		ORDER BY uts DESC
