@@ -59,7 +59,7 @@
 		INSERT INTO article (title, author, preview, type, tag)
 			VALUES (#title#, #author.id#, #preview#, #type#, ':' || REPLACE(#tag#, ',', '::') || ':')
 		<selectKey resultClass="int" keyProperty="id">
-			SELECT LAST_INSERT_ID()
+			SELECT LAST_INSERT_ROWID()
 		</selectKey>
 	</insert>
 
@@ -127,7 +127,7 @@
 		INSERT INTO comment (article, user, content, reply)
 			VALUES (#article#, #user.id#, #content#, #reply#)
 		<selectKey resultClass="int" keyProperty="id">
-			SELECT LAST_INSERT_ID()
+			SELECT LAST_INSERT_ROWID()
 		</selectKey>
 	</insert>
 
