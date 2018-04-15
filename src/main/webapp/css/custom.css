@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
-/* Override markdown setting. */
-body { font-size: 13px !important; font-family: Helvetica, 'Microsoft YaHei', Arial, Geneva, sans-serif; }
+/* Adjust article content and preview font to 14px. */
+body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Arial, Geneva, sans-serif; }
 
 /* Global container style. */
 .container { width: 1080px; text-align: left; margin: 0 auto; background: #F2F2F2; }
