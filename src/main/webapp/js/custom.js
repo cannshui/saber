@@ -118,11 +118,11 @@ function ScrollPage(config) {
 		/* In case of more than one body el, only append to the outermost body el. */
 		jBody.append(toTop + toBottom);
 		$('.s-b-to-top').click(function() {
-			jBody.animate({scrollTop: 0}, duration);
+			$('html, body').animate({scrollTop: 0}, duration);
 			return false;
 		});
 		$('.s-b-to-bottom').click(function() {
-			jBody.animate({scrollTop: $(document).height()}, duration);
+			$('html, body').animate({scrollTop: $(document).height()}, duration);
 			return false;
 		});
 		/*

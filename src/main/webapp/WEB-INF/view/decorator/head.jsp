@@ -3,7 +3,7 @@
 <div class="dncs-head">
 	<h3 class="h3-title h-logo" title="我们所过的每个平凡的日常，也许就是连续发生的奇迹...">
 		<div class="h-l-nichijou"></div>
-		<a href="${root}/index">SABER::记录我想记录的 :)</a>
+		<a href="${root}/index">Saber::记录我想记录的 :)</a>
 	</h3>
 	<div class="menu">
 		<ul>
