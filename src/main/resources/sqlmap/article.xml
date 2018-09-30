@@ -35,13 +35,13 @@
 
 	<select id="getArticles" resultMap="articleMap">
 		SELECT id, title, author, file, preview, hit_count, read_count, comment_count, useful_count,
-		rating_count, rating, type, tag, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		rating_count, rating, type, tag, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM article
 	</select>
 
 	<select id="getArticle" resultMap="articleMap">
 		SELECT id, title, author, file, preview, hit_count, read_count, comment_count, useful_count,
-		rating_count, rating, type, tag, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		rating_count, rating, type, tag, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM article WHERE id = #id#
 	</select>
 
@@ -51,7 +51,7 @@
 
 	<select id="getPagedArticles" parameterClass="dn.cs.saber.vo.PageData" resultMap="articleMap">
 		SELECT id, title, author, file, preview, hit_count, read_count, comment_count, useful_count,
-		rating_count, rating, type, tag, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		rating_count, rating, type, tag, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM article ORDER BY uts DESC LIMIT #index#, #size#
 	</select>
 
@@ -99,7 +99,7 @@
 
 	<select id="getPagedArticlesByCat" parameterClass="java.util.HashMap" resultMap="articleMap">
 		SELECT id, title, author, file, preview, hit_count, read_count, comment_count, useful_count,
-		rating_count, rating, type, tag, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		rating_count, rating, type, tag, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM article
 		<dynamic prepend="WHERE">
 			<isNotNull property="type" prepend="AND">
@@ -114,12 +114,12 @@
 	</select>
 
 	<select id="getArticleComments" resultMap="commentMap">
-		SELECT id, article, user, reply, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		SELECT id, article, user, reply, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM comment WHERE article = #article# ORDER BY cts
 	</select>
 
 	<select id="getCommentReplys" resultMap="commentMap">
-		SELECT id, article, user, reply, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		SELECT id, article, user, reply, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM comment WHERE reply = #id#
 	</select>
 

@@ -17,7 +17,7 @@
 	</resultMap>
 
 	<select id="getBoardMessages" resultMap="boardMap">
-		SELECT id, user, content, reply, ip, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		SELECT id, user, content, reply, ip, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM board ORDER BY cts DESC
 	</select>
 
@@ -30,12 +30,12 @@
 	</select>
 
 	<select id="getPagedBoardMessages" parameterClass="dn.cs.saber.vo.PageData" resultMap="boardMap">
-		SELECT id, user, content, reply, ip, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		SELECT id, user, content, reply, ip, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM board WHERE reply is null ORDER BY cts DESC LIMIT #index#, #size#
 	</select>
 
 	<select id="getBoardMessage" resultMap="boardMap">
-		SELECT id, user, content, reply, ip, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		SELECT id, user, content, reply, ip, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM board WHERE reply is null ORDER BY cts DESC
 	</select>
 
@@ -47,7 +47,7 @@
 	</insert>
 
 	<select id="getBoardMessageReplys" resultMap="boardMap">
-		SELECT id, user, content, reply, ip, strftime('%s', cts) * 1000 AS cts, strftime('%s', uts) * 1000 AS uts
+		SELECT id, user, content, reply, ip, strftime('%s', cts, 'utc') * 1000 AS cts, strftime('%s', uts, 'utc') * 1000 AS uts
 		FROM board WHERE reply = #id# ORDER BY cts DESC
 	</select>
 

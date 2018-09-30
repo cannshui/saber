@@ -189,12 +189,11 @@ public class ArticleController {
 		String rootPath = request.getServletContext().getRealPath("/");
 		String path = String.format("%s/WEB-INF/view/%d/%02d", rootPath, y, m);
 		File f = new File(path);
-		if (!f.exists()) {
+		if (!f.exists() || !f.isDirectory()) {
 			f.mkdirs();
 		}
-		path += id + ".html";
 		try {
-			file.transferTo(new File(path));
+			file.transferTo(new File(path, id + ".html"));
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

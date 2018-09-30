@@ -1,5 +1,13 @@
 Saber Change Log.
 
+======================= Saber 1.1.4 =======================
+
+ 6. sqlite3 strftime time to Java Date bug.
+	Fix: strftime needs a third parameter 'utc'.
+
+ 5. Article was uploaded to the wrong path.
+	Fix: Using the `new File(parent, child)` api to fix.
+
 ======================= Saber 1.1.3 =======================
 
 New Features:
@@ -46,8 +54,7 @@ New Features:
 
 Bug Fixes:
 
- 2. While no board messages, the first time leaving a message would
-	not show on page.
+ 2. While no board messages, the first time leaving a message would not show on page.
 	Fix: Add a check for this case. [custom.js]
 
  1. step-bar in some page, has no links on some steps.
