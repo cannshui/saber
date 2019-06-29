@@ -5,96 +5,106 @@ import java.util.List;
 
 /**
  * Comments attached to articles.
- * 
+ *
  * @author Nen Den
  */
 public class Comment {
 
-	private int id;
+    private int id;
 
-	private int article;
+    private int article;
 
-	private User user;
+    private Integer userId;
 
-	private String content;
+    private User user;
 
-	private Integer reply;
+    private String content;
 
-	private List<Comment> replies;
+    private Integer reply;
 
-	private Date cts;
+    private List<Comment> replies;
 
-	private Date uts;
+    private Date cts;
 
-	public int getId() {
-		return id;
-	}
+    private Date uts;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getArticle() {
-		return article;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setArticle(int article) {
-		this.article = article;
-	}
+    public int getArticle() {
+        return article;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public void setArticle(int article) {
+        this.article = article;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public List<Comment> getReplies() {
-		return replies;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public void setReplies(List<Comment> replies) {
-		this.replies = replies;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public Integer getReply() {
-		return reply;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setReply(Integer reply) {
-		this.reply = reply;
-	}
+    public List<Comment> getReplies() {
+        return replies;
+    }
 
-	public Date getCts() {
-		return cts;
-	}
+    public void setReplies(List<Comment> replies) {
+        this.replies = replies;
+    }
 
-	public void setCts(Date cts) {
-		this.cts = cts;
-	}
+    public Integer getReply() {
+        return reply;
+    }
 
-	public Date getUts() {
-		return uts;
-	}
+    public void setReply(Integer reply) {
+        this.reply = reply;
+    }
 
-	public void setUts(Date uts) {
-		this.uts = uts;
-	}
+    public Date getCts() {
+        return cts;
+    }
 
-	@Override
-	public String toString() {
-		return "Comment: { id: " + id + ", article: " + article + ", user: "
-				+ user + ", content: " + content + ", reply: " + reply
-				+ ", replies: " + replies + ", cts: " + cts + ", uts: " + uts + " }";
-	}
+    public void setCts(Date cts) {
+        this.cts = cts;
+    }
+
+    public Date getUts() {
+        return uts;
+    }
+
+    public void setUts(Date uts) {
+        this.uts = uts;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment: { id: " + id + ", article: " + article + ", user: "
+                + user + ", content: " + content + ", reply: " + reply
+                + ", replies: " + replies + ", cts: " + cts + ", uts: " + uts + " }";
+    }
 
 }

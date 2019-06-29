@@ -4,75 +4,75 @@ import java.util.Date;
 
 /**
  * A normal user's info.
- * 
+ *
  * @author Nen Den
  */
 public class User {
 
-	private int id;
+    private int id;
 
-	private String name;
+    private String name;
 
-	private String email;
+    private String email;
 
-	private String ip;
+    private String ip;
 
-	private Date cts;
+    private Date cts;
 
-	private Date uts;
+    private Date uts;
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getIp() {
-		return ip;
-	}
+    public String getIp() {
+        return ip;
+    }
 
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
-	public Date getCts() {
-		return cts;
-	}
+    public Date getCts() {
+        return cts;
+    }
 
-	public void setCts(Date cts) {
-		this.cts = cts;
-	}
+    public void setCts(Date cts) {
+        this.cts = cts;
+    }
 
-	public Date getUts() {
-		return uts;
-	}
+    public Date getUts() {
+        return uts;
+    }
 
-	public void setUts(Date uts) {
-		this.uts = uts;
-	}
+    public void setUts(Date uts) {
+        this.uts = uts;
+    }
 
-	@Override
-	public String toString() {
-		return "User: { id: " + id + ", name: " + name + ", email: " + email
-				+ ", ip: " + ip + ", cts: " + cts + ", uts: " + uts + " }";
-	}
+    @Override
+    public String toString() {
+        return "User: { id: " + id + ", name: " + name + ", email: " + email
+                + ", ip: " + ip + ", cts: " + cts + ", uts: " + uts + " }";
+    }
 
 }

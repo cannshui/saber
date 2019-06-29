@@ -4,6 +4,8 @@
 .info
 *.swp
 target/
+.idea
+*.iml
 
 # Uploaded markdown html files.
 src/main/webapp/WEB-INF/view/20*/

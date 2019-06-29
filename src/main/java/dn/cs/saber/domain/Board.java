@@ -5,96 +5,106 @@ import java.util.List;
 
 /**
  * Board messages.
- * 
+ *
  * @author Nen Den
  */
 public class Board {
 
-	private int id;
+    private int id;
 
-	private User user;
+    private Integer userId;
 
-	private String ip;
+    private User user;
 
-	private String content;
+    private String ip;
 
-	private Integer reply;
+    private String content;
 
-	private List<Board> replys;
+    private Integer reply;
 
-	private Date cts;
+    private List<Board> replys;
 
-	private Date uts;
+    private Date cts;
 
-	public int getId() {
-		return id;
-	}
+    private Date uts;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public List<Board> getReplys() {
-		return replys;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public void setReplys(List<Board> replys) {
-		this.replys = replys;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public Integer getReply() {
-		return reply;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setReply(Integer reply) {
-		this.reply = reply;
-	}
+    public List<Board> getReplys() {
+        return replys;
+    }
 
-	public String getIp() {
-		return ip;
-	}
+    public void setReplys(List<Board> replys) {
+        this.replys = replys;
+    }
 
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
+    public Integer getReply() {
+        return reply;
+    }
 
-	public Date getCts() {
-		return cts;
-	}
+    public void setReply(Integer reply) {
+        this.reply = reply;
+    }
 
-	public void setCts(Date cts) {
-		this.cts = cts;
-	}
+    public String getIp() {
+        return ip;
+    }
 
-	public Date getUts() {
-		return uts;
-	}
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
-	public void setUts(Date uts) {
-		this.uts = uts;
-	}
+    public Date getCts() {
+        return cts;
+    }
 
-	@Override
-	public String toString() {
-		return "Board: { id: " + id + ", user: " + user + ", content: "
-				+ content + ", reply: " + reply + ", replys: " + replys
-				+ ", cts: " + cts + ", uts: " + uts + " }";
-	}
+    public void setCts(Date cts) {
+        this.cts = cts;
+    }
+
+    public Date getUts() {
+        return uts;
+    }
+
+    public void setUts(Date uts) {
+        this.uts = uts;
+    }
+
+    @Override
+    public String toString() {
+        return "Board: { id: " + id + ", user: " + user + ", content: "
+                + content + ", reply: " + reply + ", replys: " + replys
+                + ", cts: " + cts + ", uts: " + uts + " }";
+    }
 
 }

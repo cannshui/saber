@@ -8,8 +8,8 @@
 </head>
 <body>
 <div class="container error-i">
-	<span>Fatal error had been logged.</span>
-	<a href="${root}/index">back to index...</a>
+    <span>Fatal error had been logged.</span>
+    <a href="${root}/index">back to index...</a>
 </div>
 </body>
 </html>

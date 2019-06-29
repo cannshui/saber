@@ -8,8 +8,8 @@
 </head>
 <body>
 <div class="container error-i">
-	<span>Sorry, 404 error, page not found.<span>
-	<a href="${root}/index">back to index...</a>
+    <span>Sorry, 404 error, page not found.<span>
+    <a href="${root}/index">back to index...</a>
 </div>
 </body>
 </html>

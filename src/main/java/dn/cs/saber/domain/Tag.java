@@ -2,34 +2,34 @@ package dn.cs.saber.domain;
 
 /**
  * Tag, a article belong to, such as Unix, Linux, C, Java, Git.
- * 
+ *
  * @author hewen.deng
  */
 public class Tag {
 
-	private int id;
+    private int id;
 
-	private String name;
+    private String name;
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public String toString() {
-		return "Tag: { id: " + id + ", name: " + name + " }";
-	}
+    @Override
+    public String toString() {
+        return "Tag: { id: " + id + ", name: " + name + " }";
+    }
 
 }

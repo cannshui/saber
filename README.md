@@ -1,10 +1,10 @@
-# Personal Blog saber v1.1.4
+# Personal Blog saber v2.0.0
 
 Author: [Nen Den](https://github.com/cannshui)
 
 Designer: [Lenny](http://weibo.com/Lennynan)
 
-## Features:
+## Features
 
  1. List and Upload articles.
  2. Search articles by type(translation and personal) and tag(Linux, Unix, Java, etc).
@@ -12,15 +12,29 @@ Designer: [Lenny](http://weibo.com/Lennynan)
  4. Add comments to article.
  5. Message board.
 
-## Main Dependencies:
+## Main Dependencies
 
- 1. MySQL
- 2. Java 1.6.45.
- 3. Spring 3.1.3.
- 4. iBatis 2.3.4.726.
- 6. SQLite3
- 5. ...
+ 1. Java 1.8.
+ 2. Spring 4.3.24.
+ 3. SQLite3
+ 4. ...
 
-## MIT License.
+## Run
+
+    $ git clone https://github.com/cannshui/saber.git
+    $ cd saber
+    # exec scripts/sqlite3-saber.sql, to init database
+    $ touch src/main/resources/private.properties
+    # custom jdbc properties in private.properties
+    # after custom, run with maven
+    $ mvn tomcat7:run
+
+## Build
+
+After clone and custom, build saber.war:
+
+    $ mvn clean package -DskipTests 
+
+## MIT License
 
 **All source codes and articles** are released under **MIT license**.

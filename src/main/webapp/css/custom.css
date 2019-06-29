@@ -7,33 +7,35 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .container { width: 1080px; text-align: left; margin: 0 auto; background: #F2F2F2; }
 /* error-i index-i */
 .container.index-i, .container.error-i {
-	text-align: center; width: 800px; margin-top: 150px !important; font-weight: 900;
-	padding: 25px 0; font-size: 20px; color: green; border-radius: 5px;
+    text-align: center; width: 800px; margin-top: 150px !important; font-weight: 900;
+    padding: 25px 0; font-size: 20px; color: green; border-radius: 5px;
 }
 .container.error-i { color: red !important; }
 
 /* dncs-head style start. */
 .dncs-head { height: 100px; background: #405490; color: white; }
 .h-l-nichijou {
-	display: inline-block; width: 20px; height: 35px; background: lightgreen;
-	border-top-right-radius: 10px 20px; border-bottom-left-radius: 10px 20px;
-	margin-left: 10px; box-shadow: -3px -3px 2px white;
+    display: inline-block; width: 20px; height: 35px; background: lightgreen;
+    border-top-right-radius: 10px 20px; border-bottom-left-radius: 10px 20px;
+    margin-left: 10px; box-shadow: -3px -3px 2px white;
 }
 .dncs-head .h-logo { padding-top: 10px; margin-left: 10px; font-size: 20px; }
 .dncs-head .menu { margin-top: 15px; text-align: right; }
 .dncs-head .menu ul { margin: 0; }
 .dncs-head li { display: inline-block; font-size: 15px; font-weight: bold; margin-right: 20px; } 
 .dncs-head li a { color: white; }
+.dncs-head .h-tags { text-align: right; margin-top: 5px; display: none; }
+.dncs-head .h-tags a code { font-size: 14px; margin: 0 4px; }
 /* dncs-head style end. */
 
 /* step-bar style.*/
-.step-bar { color: #405490; font-weight: 700; font-size: 14px; margin: 10px 0 10px 22px; }
+.step-bar { color: #405490; font-weight: 700; font-size: 14px; margin: 10px 0 10px 25px; }
 .step-bar a { color: #405490; }
 
 /* container left style start. */
 .left {
-	background-color: white; margin: auto 25px; padding-left: 20px; padding-right: 20px;
-	width: 700px; float: left; border-top: 2px #405490 solid;
+    background-color: white; margin: auto 25px; padding-left: 20px; padding-right: 20px;
+    width: 990px; border-top: 2px #405490 solid;
 }
 
 /* index page style start. */
@@ -45,8 +47,8 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .article .a-other { font-size: 12px; }
 .article .a-other .a-o-left { display: inline-block; text-align: left; width: 48%; }
 .article .a-other .a-o-left .a-type {
-	display: inline-block; width: 40px; height: 20px; line-height: 20px; background-color: #405490;
-	color: white; border-radius: 3px; text-align: center;
+    display: inline-block; width: 40px; height: 20px; line-height: 20px; background-color: #405490;
+    color: white; border-radius: 3px; text-align: center;
 }
 .article .a-other .a-o-right { display: inline-block; text-align: right; width: 48%; }
 .article .a-other .a-o-right span { margin-left: 15px; }
@@ -68,8 +70,8 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .detail .d-content .author-bar span a { cursor: pointer; text-decoration: none; }
 .detail .d-content .author-bar span a.rating-count { cursor: auto; }
 .detail .d-content .author-bar .a-rating {
-	display: inline-block; width: 10px; height: 12px; background: grey; margin-left: 5px;
-	border-top-right-radius: 5px 10px; border-bottom-left-radius: 5px 10px;
+    display: inline-block; width: 10px; height: 12px; background: grey; margin-left: 5px;
+    border-top-right-radius: 5px 10px; border-bottom-left-radius: 5px 10px;
 }
 .detail .d-content .author-bar .a-rating-v { display: inline-block; width: 25px; text-align: center;}
 .detail .d-content .a-c-marker { float: right; font-size: 13px; color: green; }
@@ -89,7 +91,7 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .comments .comment .c-replies blockquote { margin: 5px 0 0 0; padding: 0 0 0 10px; }
 .comments .comment .c-replies p { margin: 5px auto; padding: 0; }
 .new-comment h3 { font-size: 15px; }
-.new-comment .comment-box { margin: 0px; width: 700px; height: 140px; border-radius: 3px; border: 0; background: #F2F2F2; }
+.new-comment .comment-box { margin: 0px; width: 100%; height: 140px; border-radius: 3px; border: 0; background: #F2F2F2; }
 /* both detail and board style end. */
 
 /* `detail`, `board` and `creator` poster style start. */
@@ -97,12 +99,12 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .poster input { width: 200px; border: 0; background: #F2F2F2; border-radius: 3px; height: 24px; }
 .poster .form-group { position: relative; display: inline-block; }
 .poster .form-group label {
-	position: absolute; top: -10px; left: 10px; font-size: 10px; background-color: white; padding: 0px 5px;
-	line-height: 13px; overflow: hidden; display: none; border: 1px solid grey;
+    position: absolute; top: -10px; left: 10px; font-size: 10px; background-color: white; padding: 0px 5px;
+    line-height: 13px; overflow: hidden; display: none; border: 1px solid grey;
 }
 .poster .submit-btn {
-	display: inline-block; width: 60px; height: 25px; line-height: 25px; text-align: center; border-radius: 3px;
-	background-color: #405490; color: white; cursor: pointer;
+    display: inline-block; width: 60px; height: 25px; line-height: 25px; text-align: center; border-radius: 3px;
+    background-color: #405490; color: white; cursor: pointer;
 }
 .poster .submit-btn:hover { text-decoration: none; }
 /* `detail`, `board` and `creator` poster style end. */
@@ -119,43 +121,25 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 
 /* container left style end. */
 
-/* container right style start. */
-.right { width: 250px; float: right; margin-right: 25px; color: black; }
-.right .r-a-block { border-top: 2px #405490 solid; background: white; margin-bottom: 20px; }
-.right ul { list-style: none; margin: 0; padding: 0; }
-.right ul li {
-	line-height: 35px; height: 35px; margin: 0; padding: 0 0 0 10px; border-bottom: #999 1px solid;
-}
-.right ul > :last-child {border: 0;}
-.right .r-l-title {
-	margin: 0; padding: 0 0 0 10px; border-bottom: #999 1px solid; font-size: 14px;
-	line-height: 35px; height: 35px; font-weight: bold; vertical-align: bottom;
-}
-.right ul li span { display: inline-block; }
-.right ul li span.right-cat { float: left; }
-.right ul li span.right-cat-go { float: right; width: 30px; }
-.right .r-a-block .r-a-b-tags { margin-top: 10px; }
-.right .r-a-block .r-a-b-tags a code { font-size: 14px; margin: 0 4px; }
-/* container right style ended: */
-
 .page-bar { margin: 10px auto; text-align: center; }
 .page-bar a { display: inline-block; width: 20px; border-radius: 3px; }
 .page-bar a.p-current, .page-bar a:hover { background: lightblue; }
 
 .scroll-btn {
-	position: fixed; right: 5px; text-decoration: none; color: grey; font-size: 12px;
-	padding: 2px; width: 40px; height: 18px; line-height: 18px; text-align: center;
-	background-color: rgba(235, 235, 235, 0.80); text-shadow: 0px 0px 4px #fff; opacity: 0.5;
+    position: fixed; right: 5px; text-decoration: none; color: grey; font-size: 12px;
+    padding: 2px; width: 40px; height: 18px; line-height: 18px; text-align: center;
+    background-color: rgba(235, 235, 235, 0.80); text-shadow: 0px 0px 4px #fff; opacity: 0.5;
 }
 .scroll-btn:hover {
-	background-color: rgba(135, 135, 135, 0.50); opacity: 0.8; color: black; text-decoration: none;
+    background-color: rgba(135, 135, 135, 0.50); opacity: 0.8; color: black; text-decoration: none;
 }
+.s-b-to-tag { bottom: 75px; }
 .s-b-to-top { bottom: 45px; }
 .s-b-to-bottom { bottom: 15px; }
 
 .dncs-foot {
-	background: white; height: 50px; color: grey; margin-top: 50px; font-weight: 700;
-	text-align: center; line-height: 50px;
+    background: white; height: 50px; color: grey; margin-top: 50px; font-weight: 700;
+    text-align: center; line-height: 50px;
 }
 
 /* Custom settings. */

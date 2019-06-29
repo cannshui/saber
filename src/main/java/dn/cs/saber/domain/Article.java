@@ -2,179 +2,194 @@ package dn.cs.saber.domain;
 
 import java.util.Date;
 
+/**
+ * @author dn
+ * @since 1.0.0
+ */
 public class Article {
 
-	private int id;
+    private int id;
 
-	/** True article title. */
-	private String title;
+    /** True article title. */
+    private String title;
 
-	/** Author of article. */
-	private User author;
+    /** Author of article. */
+    private Integer userId;
 
-	/** Preview of this article. */
-	private String preview;
+    /** Author of article. */
+    private User author;
 
-	/** Article click count. */
-	private int hitCount;
+    /** Preview of this article. */
+    private String preview;
 
-	/** Article read count. */
-	private int readCount;
+    /** Article click count. */
+    private int hitCount;
 
-	/** Useful? */
-	private int usefulCount;
+    /** Article read count. */
+    private int readCount;
 
-	/** Average rating. */
-	private int ratingCount;
+    /** Useful? */
+    private int usefulCount;
 
-	/** Average rating. */
-	private float rating;
+    /** Average rating. */
+    private int ratingCount;
 
-	/** Article type. */
-	private int type;
+    /** Average rating. */
+    private float rating;
 
-	private String tag;
+    /** Article type. */
+    private int type;
 
-	/** Tags of this article. */
-	private Tag[] tags;
+    private String tag;
 
-	private int commentCount;
+    /** Tags of this article. */
+    private Tag[] tags;
 
-	/** Published time. */
-	private Date publishTime;
+    private int commentCount;
 
-	/** Republished after some fix. */
-	private Date rePublishTime;
+    /** Published time. */
+    private Date publishTime;
 
-	public int getId() {
-		return id;
-	}
+    /** Republished after some fix. */
+    private Date rePublishTime;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public int getHitCount() {
-		return hitCount;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setHitCount(int hitCount) {
-		this.hitCount = hitCount;
-	}
+    public int getHitCount() {
+        return hitCount;
+    }
 
-	public int getReadCount() {
-		return readCount;
-	}
+    public void setHitCount(int hitCount) {
+        this.hitCount = hitCount;
+    }
 
-	public void setReadCount(int readCount) {
-		this.readCount = readCount;
-	}
+    public int getReadCount() {
+        return readCount;
+    }
 
-	public int getUsefulCount() {
-		return usefulCount;
-	}
+    public void setReadCount(int readCount) {
+        this.readCount = readCount;
+    }
 
-	public void setUsefulCount(int usefulCount) {
-		this.usefulCount = usefulCount;
-	}
+    public int getUsefulCount() {
+        return usefulCount;
+    }
 
-	public float getRating() {
-		return rating;
-	}
+    public void setUsefulCount(int usefulCount) {
+        this.usefulCount = usefulCount;
+    }
 
-	public void setRating(float rating) {
-		this.rating = rating;
-	}
+    public float getRating() {
+        return rating;
+    }
 
-	public String getTag() {
-		return tag;
-	}
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
 
-	public void setTag(String tag) {
-		this.tag = tag;
-	}
+    public String getTag() {
+        return tag;
+    }
 
-	public Tag[] getTags() {
-		return tags;
-	}
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 
-	public void setTags(Tag[] tags) {
-		this.tags = tags;
-	}
+    public Tag[] getTags() {
+        return tags;
+    }
 
-	public Date getPublishTime() {
-		return publishTime;
-	}
+    public void setTags(Tag[] tags) {
+        this.tags = tags;
+    }
 
-	public void setPublishTime(Date publishTime) {
-		this.publishTime = publishTime;
-	}
+    public Date getPublishTime() {
+        return publishTime;
+    }
 
-	public Date getRePublishTime() {
-		return rePublishTime;
-	}
+    public void setPublishTime(Date publishTime) {
+        this.publishTime = publishTime;
+    }
 
-	public void setRePublishTime(Date rePublishTime) {
-		this.rePublishTime = rePublishTime;
-	}
+    public Date getRePublishTime() {
+        return rePublishTime;
+    }
 
-	public String getPreview() {
-		return preview;
-	}
+    public void setRePublishTime(Date rePublishTime) {
+        this.rePublishTime = rePublishTime;
+    }
 
-	public void setPreview(String preview) {
-		this.preview = preview;
-	}
+    public String getPreview() {
+        return preview;
+    }
 
-	public User getAuthor() {
-		return author;
-	}
+    public void setPreview(String preview) {
+        this.preview = preview;
+    }
 
-	public void setAuthor(User author) {
-		this.author = author;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public int getCommentCount() {
-		return commentCount;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public void setCommentCount(int commentCount) {
-		this.commentCount = commentCount;
-	}
+    public User getAuthor() {
+        return author;
+    }
 
-	public int getType() {
-		return type;
-	}
+    public void setAuthor(User author) {
+        this.author = author;
+    }
 
-	public void setType(int type) {
-		this.type = type;
-	}
+    public int getCommentCount() {
+        return commentCount;
+    }
 
-	public int getRatingCount() {
-		return ratingCount;
-	}
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
+    }
 
-	public void setRatingCount(int ratingCount) {
-		this.ratingCount = ratingCount;
-	}
+    public int getType() {
+        return type;
+    }
 
-	@Override
-	public String toString() {
-		return "Article: { id: " + id + ", title: " + title + ", author: "
-				+ author + ", preview: " + preview + ", hitCount: " + hitCount
-				+ ", readCount: " + readCount + ", usefulCount: " + usefulCount
-				+ ", ratingCount: " + ratingCount + ", rating: " + rating
-				+ ", type: " + type + ", tags: " + tags + ", commentCount: "
-				+ commentCount + ", publishTime: " + publishTime
-				+ ", rePublishTime: " + rePublishTime + " }";
-	}
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getRatingCount() {
+        return ratingCount;
+    }
+
+    public void setRatingCount(int ratingCount) {
+        this.ratingCount = ratingCount;
+    }
+
+    @Override
+    public String toString() {
+        return "Article: { id: " + id + ", title: " + title + ", author: "
+                + author + ", preview: " + preview + ", hitCount: " + hitCount
+                + ", readCount: " + readCount + ", usefulCount: " + usefulCount
+                + ", ratingCount: " + ratingCount + ", rating: " + rating
+                + ", type: " + type + ", tags: " + tags + ", commentCount: "
+                + commentCount + ", publishTime: " + publishTime
+                + ", rePublishTime: " + rePublishTime + " }";
+    }
 
 }

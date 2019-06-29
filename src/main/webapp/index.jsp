@@ -5,13 +5,13 @@
 <head>
 <%@ include file="/WEB-INF/view/decorator/common.jsp" %>
 <script type="text/javascript">
-	window.location.href = '${root}/index';
+    window.location.href = '${root}/index';
 </script>
 <title>Welcome</title>
 </head>
 <body>
 <div class="container index-i">
-	<span>SABER::RECORD WHAT I WANT TO RECORD...</span>
+    <span>SABER::RECORD WHAT I WANT TO RECORD...</span>
 </div>
 </body>
 </html>
