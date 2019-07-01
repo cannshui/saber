@@ -2,8 +2,8 @@ package dn.cs.saber.dao.impl;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -152,7 +152,12 @@ public class ArticleDaoImpl implements ArticleDao {
             ps.setInt(1, comment.getArticle());
             ps.setInt(2, comment.getUser().getId());
             ps.setString(3, comment.getContent());
-            ps.setInt(4, comment.getReply());
+            Integer reply = comment.getReply();
+            if (reply == null) {
+                ps.setNull(4, Types.INTEGER);
+            } else {
+                ps.setInt(4, comment.getReply());
+            }
             return ps;
         }, keyHolder);
         int id = keyHolder.getKey().intValue();

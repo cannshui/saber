@@ -23,7 +23,7 @@ Designer: [Lenny](http://weibo.com/Lennynan)
 
     $ git clone https://github.com/cannshui/saber.git
     $ cd saber
-    # exec scripts/sqlite3-saber.sql, to init database
+    # exec scripts/sqlite3-saber.sql to init database
     $ touch src/main/resources/private.properties
     # custom jdbc properties in private.properties
     # after custom, run with maven

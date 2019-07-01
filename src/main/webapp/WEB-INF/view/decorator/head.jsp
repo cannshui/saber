@@ -35,7 +35,7 @@ $(function() {
     });
 
     $('#tagBtn').click(function() {
-        $('#langTags').slideToggle();
+        $('#langTags').slideToggle(100);
     });
 });
 </script>

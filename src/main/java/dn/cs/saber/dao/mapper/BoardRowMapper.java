@@ -1,7 +1,6 @@
 package dn.cs.saber.dao.mapper;
 
 import dn.cs.saber.domain.Board;
-import dn.cs.saber.domain.Comment;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

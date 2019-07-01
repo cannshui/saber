@@ -25,7 +25,7 @@ $(function() {
                     <span><fmt:formatDate pattern="yyyy-MM-dd" value="${article.publishTime}" /></span>
                 </h6>
                 <div class="a-preview">${article.preview}</div>
-                <div class="a-full-link"><a href="${root}/article/${article.id}">阅读全文 &gt;&gt;</a></div>
+                <div class="a-full-link"><a href="${root}/article/${article.id}">阅读 &gt;&gt;</a></div>
                 <div class="a-other">
                     <div class="a-o-left">
                         <a class="a-type" href="${root}/index/type/${article.type}/page/1"><c:if test="${article.type == 1}">#原创</c:if><c:if test="${article.type == 2}">#译文</c:if></a>

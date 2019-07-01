@@ -22,7 +22,7 @@ public class Board {
 
     private Integer reply;
 
-    private List<Board> replys;
+    private List<Board> replies;
 
     private Date cts;
 
@@ -60,12 +60,12 @@ public class Board {
         this.content = content;
     }
 
-    public List<Board> getReplys() {
-        return replys;
+    public List<Board> getReplies() {
+        return replies;
     }
 
-    public void setReplys(List<Board> replys) {
-        this.replys = replys;
+    public void setReplies(List<Board> replies) {
+        this.replies = replies;
     }
 
     public Integer getReply() {
@@ -103,7 +103,7 @@ public class Board {
     @Override
     public String toString() {
         return "Board: { id: " + id + ", user: " + user + ", content: "
-                + content + ", reply: " + reply + ", replys: " + replys
+                + content + ", reply: " + reply + ", replies: " + replies
                 + ", cts: " + cts + ", uts: " + uts + " }";
     }
 

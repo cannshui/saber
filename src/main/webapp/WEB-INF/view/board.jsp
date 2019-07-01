@@ -55,9 +55,8 @@ $(function() {
                         <a class="p-reply-btn" href="#new-comment" rel="${message.id}">回复</a>
                     </p>
                     <p class="c-content">${message.content}</p>
-                    <%-- <c:if test="${not empty comment.replys}"> --%>
                     <div class="c-replies">
-                        <c:forEach items="${message.replys}" var="reply">
+                        <c:forEach items="${message.replies}" var="reply">
                             <blockquote>
                                 <p class="c-poster clearfix">
                                     <c:if test="${not empty reply.user.name}"><c:set var="replyUserName" value="${reply.user.name}" /></c:if>
@@ -72,7 +71,6 @@ $(function() {
                             </blockquote>
                         </c:forEach>
                     </div>
-                    <%-- </c:if> --%>
                 </div>
                 </c:forEach>
                 <div class="page-bar"></div>

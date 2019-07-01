@@ -52,7 +52,7 @@ public class BoardDaoImpl implements BoardDao {
         board.setUser(this.userDao.getUser(board.getUserId()));
         /* set replies */
         List<Board> replies = this.jdbcTemplate.query(SELECT_BOARD_MESSAGE_REPLIES_SQL, new Object[]{board.getId()}, new BoardRowMapper());
-        board.setReplys(replies);
+        board.setReplies(replies);
         replies.forEach(this::completeBoardMessage);
     }
 

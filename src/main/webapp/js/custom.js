@@ -538,12 +538,9 @@ $(function() {
         if (e.ctrlKey && e.altKey && e.keyCode == 70) {
             var jHead = $('.dncs-head');
             var jFoot = $('.dncs-foot');
-            var jRight = $('.right');
             var jLeft = $('.left');
             jHead.hide('slow');
             jFoot.hide('slow');
-            jRight.hide('slow');
-            jLeft.css('width', '990px');
             $(this).unbind('keydown');
         }
     });

@@ -20,8 +20,8 @@ $(function() {
 
     renderRating(_rvi);
 
-    var jARating = $('.a-rating');
-    var jARV = $('.a-rating-v');
+    var jARating = DNCS.get('_jars');
+    var jARV = DNCS.get('_jarv');
 
     setTimeout(function() {
         DNCS.xhrPut('${root}/article/${article.id}');
@@ -62,16 +62,17 @@ $(function() {
                     <span>${article.author.name}</span>
                     <span><fmt:formatDate pattern="yyyy-MM-dd" value="${article.publishTime}" /> Create.</span>
                     <span><fmt:formatDate pattern="yyyy-MM-dd" value="${article.rePublishTime}" /> Update.</span>
+                    <span><a class="a-b-readCount">${article.readCount}</a> 次阅读</span>
+                    <span><a class="rating-count">${article.ratingCount}</a> 人评分</span>
+                    <span><label>平均得分</label><a class="a-rating-v" title="clear my rate?">${article.rating}</a></span>
                     <span>
-                        <a class="rating-count">${article.ratingCount}</a> 人评分
+                        <label>评分</label>
                         <a class="a-rating" title="很差"></a>
                         <a class="a-rating" title="一般"></a>
                         <a class="a-rating" title="普通"></a>
                         <a class="a-rating" title="有用"></a>
                         <a class="a-rating" title="很好"></a>
-                        平均得分<a class="a-rating-v" title="clear my rate?">${article.rating}</a>
                     </span>
-                    <span><a class="a-b-readCount">${article.readCount}</a> 次阅读</span>
                 </div>
             </div>
             <div id="comments" class="comments">
@@ -80,24 +81,22 @@ $(function() {
                 <div class="comment">
                     <p class="c-poster clearfix">
                         <span class="p-name"><span class="p-r-name">${comment.user.name}</span></span>
-                        <span class="p-time"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${comment.createTime}" /></span>
+                        <span class="p-time"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${comment.cts}" /></span>
                         <a class="p-reply-btn" href="#new-comment" rel="${comment.id}">回复</a>
                     </p>
                     <p class="c-content">${comment.content}</p>
-                    <%-- <c:if test="${not empty comment.replies}"> --%>
                     <div class="c-replies">
                         <c:forEach items="${comment.replies}" var="reply">
                             <blockquote>
                                 <p class="c-poster clearfix">
                                     <span class="p-name"><span class="p-r-name">${reply.user.name}</span>@${reply.replies[0].user.name}</span>
-                                    <span class="p-time"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${reply.createTime}" /></span>
+                                    <span class="p-time"><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${reply.cts}" /></span>
                                     <a class="p-reply-btn" href="#new-comment" rel="${reply.id}">回复</a>
                                 </p>
                                 <p class="c-content">${reply.content}</p>
                             </blockquote>
                         </c:forEach>
                     </div>
-                    <%-- </c:if> --%>
                 </div>
                 </c:forEach>
             </div>

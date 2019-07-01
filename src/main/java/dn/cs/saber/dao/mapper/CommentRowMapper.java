@@ -21,7 +21,10 @@ public class CommentRowMapper implements RowMapper<Comment> {
         po.setArticle(rs.getInt("article"));
         po.setUserId(rs.getInt("user"));
         po.setContent(rs.getString("content"));
-        po.setReply(rs.getInt("reply"));
+        Object replyId = rs.getObject("reply");
+        if (replyId != null) {
+            po.setReply((int) replyId);
+        }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             po.setCts(sdf.parse(rs.getString("cts")));

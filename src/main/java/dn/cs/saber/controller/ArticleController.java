@@ -155,7 +155,6 @@ public class ArticleController {
 
         Calendar cal = Calendar.getInstance();
         int y = cal.get(Calendar.YEAR);
-        int m = cal.get(Calendar.MONTH) + 1;
         String rootPath = request.getServletContext().getRealPath("/");
         String path = String.format("%s/WEB-INF/view/%d", rootPath, y);
         File f = new File(path);

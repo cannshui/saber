@@ -19,7 +19,7 @@ public class PageData<T> {
     /** Current page number. */
     private int page = 1;
 
-    /** Result Datas return to view. */
+    /** Result data return to view. */
     private List<T> datas = null;
 
     /** The start index of table row. */
