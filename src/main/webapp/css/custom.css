@@ -13,7 +13,7 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .container.error-i { color: red !important; }
 
 /* dncs-head style start. */
-.dncs-head { height: 100px; background: #405490; color: white; }
+.dncs-head { background: #405490; color: white; }
 .h-l-nichijou {
     display: inline-block; width: 20px; height: 35px; background: lightgreen;
     border-top-right-radius: 10px 20px; border-bottom-left-radius: 10px 20px;
@@ -24,8 +24,8 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .dncs-head .menu ul { margin: 0; }
 .dncs-head li { display: inline-block; font-size: 15px; font-weight: bold; margin-right: 20px; } 
 .dncs-head li a { color: white; }
-.dncs-head .h-tags { text-align: right; margin-top: 5px; display: none; }
-.dncs-head .h-tags a code { font-size: 14px; margin: 0 4px; }
+.dncs-head .h-tags { text-align: right; font-size: 13px; display: none; }
+.dncs-head .h-tags a { margin: 0 4px; color: white; }
 /* dncs-head style end. */
 
 /* step-bar style.*/
@@ -42,7 +42,7 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .article { margin-top: 20px; border: 1px solid lightblue; padding: 10px; border-radius: 5px; }
 .article .a-title { margin: 0px; height: 25px; line-height: 25px; height: 25px; }
 .article .a-author { font-weight: normal; font-size: 12px; margin: 5px auto; }
-.article .a-full-link { margin: 5px auto; }
+.article .a-full-link { font-size: 12px; margin: 5px auto; }
 .article .article-tag span { display: inline-block; } 
 .article .a-other { font-size: 12px; }
 .article .a-other .a-o-left { display: inline-block; text-align: left; width: 48%; }
@@ -115,6 +115,7 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 /* board page style end. */
 
 /* about page style start. */
+.about { padding-bottom: 10px; }
 .about ul li.a-i-title { font-size: 18px; font-weight: bold; color: #405490; }
 .about ul li.a-i-ex { list-style: none; font-size: 13px; color: #333; margin-bottom: 20px; }
 /* about page style end. */

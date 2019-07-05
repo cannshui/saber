@@ -9,33 +9,43 @@
         <ul>
             <li><a href="${root}/index/type/1/page/1">原创</a></li>
             <li><a href="${root}/index/type/2/page/1">译文</a></li>
-            <li><a id="tagBtn" href="javascript:void(0)">TAG</a></li>
-            <li><a href="${root}/about">About</a></li>
-            <li><a href="${root}/board">留言板</a></li>
+            <li><a id="tagBtn" href="javascript:void(0)">标签</a></li>
+            <li><a href="${root}/board">留言</a></li>
+            <li><a href="${root}/about">关于</a></li>
+            <li><a href="https://github.com/cannshui/saber" target="_blank" title="Fork me on Github">Fork</a></li>
         </ul>
     </div>
     <div id="langTags" class="h-tags"></div>
 </div>
 <script type="text/javascript">
 $(function() {
-    $.get('${root}/tags', function(resp) {
-        if (resp.code != 200) {
-            console.log('Get tags failed.');
-            return;
-        }
+    var tags = JSON.parse(localStorage.getItem('saber-tags'))
+    if (tags) {
+        renderTags(tags)
+    } else {
+        $.get('${root}/tags', function(resp) {
+            if (resp.code != 200) {
+                console.log('Get tags failed.');
+                return;
+            }
+            var tags = resp.data
+            renderTags(tags)
+            localStorage.setItem('saber-tags', JSON.stringify(tags))
+        });
+    }
+
+    function renderTags(tags) {
         var jTags = $('#langTags');
-        jTags.empty();
-        var datas = resp.data;
         var s = '';
-        for (var i = 0, l = datas.length; i < l; i++) {
-            var data = datas[i];
-            s += '<a href="${root}/index/tag/' + data.id + '/page/1"><code>' + data.name + '</code></a> ';
+        for (var i = 0, l = tags.length; i < l; i++) {
+            var tag = tags[i];
+            s += '<a href="${root}/index/tag/' + tag.id + '/page/1">' + tag.name + '</a>';
         }
         $(s).appendTo(jTags);
-    });
-
-    $('#tagBtn').click(function() {
-        $('#langTags').slideToggle(100);
-    });
+        /* after render, do bind */
+        $('#tagBtn').click(function() {
+            $('#langTags').slideToggle(250);
+        });
+    }
 });
 </script>

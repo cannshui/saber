@@ -59,5 +59,5 @@ END;
 INSERT INTO user (name, email) VALUES ('Nen Den', 'zhegema@126.com');
 INSERT INTO tag (id, name) VALUES
     (1, 'Unix'),(2, 'Linux'),(3, 'C'),(4, 'Java'),(5, 'Lua'), (6, 'JS'), (7, 'Spring'),
-    (8, 'HTML'), (9, 'CSS'), (10, 'SQL'), (11, 'MySQL'), (12, 'nginx'), (13, 'SVN'), (14, 'Log4j'),
+    (8, 'HTML'), (9, 'CSS'), (10, 'SQL'), (11, 'MySQL'), (12, 'Nginx'), (13, 'SVN'), (14, 'Log4j'),
     (15, 'SSH'), (16, 'WebSocket'), (17, 'R');
