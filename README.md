@@ -36,7 +36,7 @@ After clone and custom, build saber.war:
 
     $ mvn clean package -DskipTests
 
-Deploy to tomcat(7, 8, 9) servlet container is recommended.
+Deploy to lastest tomcat(7, 8, 9) servlet container is recommended.
 
 ## MIT License
 

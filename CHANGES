@@ -8,6 +8,8 @@ New Features:
  * Refactor UI.
  * Remove iBaits, just use spring-jdbc.
  * Refactor article path, remove the *month* part.
+ * Add filter to record all requests.
+ * Using forward instead redirect for a graceful URI.
  * Remove things about mysql, only support sqlite3.
  * Remove useless things.
 
