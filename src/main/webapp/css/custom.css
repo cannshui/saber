@@ -5,8 +5,8 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 
 /* Global container style. */
 .container { width: 880px; text-align: left; margin: 0 auto; background: #F2F2F2; }
-/* error-i index-i */
-.container.index-i, .container.error-i {
+/* error-i*/
+.container.error-i {
     text-align: center; width: 800px; margin-top: 150px !important; font-weight: 900;
     padding: 25px 0; font-size: 20px; color: green; border-radius: 5px;
 }
@@ -116,8 +116,8 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 
 /* about page style start. */
 .about { padding-bottom: 10px; }
-.about ul li.a-i-title { font-size: 18px; font-weight: bold; color: #405490; }
-.about ul li.a-i-ex { list-style: none; font-size: 13px; color: #333; margin-bottom: 20px; }
+.about ul li.a-i-title { font-size: 17px; font-weight: bold; color: #405490; }
+.about ul li.a-i-ex { list-style: none; font-size: 13px; color: #333; margin: 5px auto 15px; }
 /* about page style end. */
 
 /* container left style end. */

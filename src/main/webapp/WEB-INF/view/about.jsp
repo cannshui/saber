@@ -19,11 +19,10 @@
                 <li class="a-i-title">基于 Markdown</li>
                 <li class="a-i-ex">
                     <ul>
-                        <li>基于 Markdown 标准语法编写文章，然后导出 HTML 格式。
-                        <li>请去掉 <code>&lt;html&gt;</code> 标记，整个 <code>&lt;head&gt;</code> 标记内容，和 <code>&lt;body&gt;</code> 标记。
+                        <li>基于 Markdown 标准语法编写文章，然后生成 HTML 文件。
+                        <li>去掉 <code>&lt;html&gt;</code> 标记，整个 <code>&lt;head&gt;</code> 标记内容，和 <code>&lt;body&gt;</code> 标记。
                             即，<strong>只保留</strong> <code>&lt;body&gt;</code> 内的正文内容，目的在于<strong>避免</strong>样式冲突。
-                        <li>通过<a href="${root}/article/new">投稿</a>发布到本站。
-                        <li>暂不考虑提供文章的在线编写方式。但在后续版本中考虑接受 Markdown 输入，如评论、文章简介、留言。
+                        <li>后续版本中考虑接受 Markdown 输入，如评论、留言区。
                     </ul>
                 </li>
                 <li class="a-i-title">用到 CSS3</li>
