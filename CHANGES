@@ -1,5 +1,11 @@
 Saber Change Log.
 
+======================= Saber 2.0.1 =======================
+
+Bug Fixes:
+
+ 7. Upgrade jackson.
+
 ======================= Saber 2.0.0 =======================
 
 New Features:
