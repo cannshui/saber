@@ -21,7 +21,7 @@ $(function() {
             <div class="article">
                 <h5 class="h5-title a-title">${article.title}</h5>
                 <h6 class="a-author">
-                    <span>${article.author.name},&nbsp;&nbsp;</span>
+                    <span>${article.author.name}, </span>
                     <span><fmt:formatDate pattern="yyyy-MM-dd" value="${article.publishTime}" /></span>
                 </h6>
                 <div class="a-preview">${article.preview}</div>
@@ -29,9 +29,11 @@ $(function() {
                 <div class="a-other">
                     <div class="a-o-left">
                         <a class="a-type" href="${root}/index/type/${article.type}/page/1"><c:if test="${article.type == 1}">#原创</c:if><c:if test="${article.type == 2}">#译文</c:if></a>
-                        <c:forEach items="${article.tags}" var="tag">
-                        <a href="${root}/index/tag/${tag.id}/page/1">&nbsp;&nbsp;${tag.name}</a>
-                        </c:forEach>
+                        <span class="a-o-l-tags">
+                            <c:forEach items="${article.tags}" var="tag">
+                            <a href="${root}/index/tag/${tag.id}/page/1">${tag.name}</a>
+                            </c:forEach>
+                        </span>
                     </div>
                     <div class="a-o-right">
                         <span>阅读 (${article.readCount})</span>

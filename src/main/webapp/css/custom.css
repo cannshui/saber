@@ -50,6 +50,7 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
     display: inline-block; width: 40px; height: 20px; line-height: 20px; background-color: #405490;
     color: white; border-radius: 3px; text-align: center;
 }
+.article .a-other .a-o-left .a-o-l-tags a { margin-left: 10px; }
 .article .a-other .a-o-right { display: inline-block; text-align: right; width: 48%; }
 .article .a-other .a-o-right span { margin-left: 15px; }
 /* index page style end. */

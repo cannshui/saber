@@ -38,6 +38,12 @@ After clone and custom, build saber.war:
 
 Deploy to lastest tomcat(7, 8, 9) servlet container is recommended.
 
+## Backup
+
+Copy script `saber-backup.sh` to server. In your env, you may need to change the hard coding paths.
+
+    $ ./saber-backup.sh
+
 ## MIT License
 
 **All source codes and articles** are released under **MIT license**.
