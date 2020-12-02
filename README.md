@@ -2,7 +2,7 @@
 
 Author: [Nen Den](https://github.com/cannshui)
 
-Designer: [Lenny](http://weibo.com/Lennynan)
+Designer: [Lenny](http://weibo.com/Lennynan) & [Nen Den](https://github.com/cannshui)
 
 ## Features
 
@@ -36,7 +36,7 @@ After clone and custom, build saber.war:
 
     $ mvn clean package -DskipTests
 
-Deploy to lastest tomcat(7, 8, 9) servlet container is recommended.
+Deploy to lastest tomcat(8, 9, 10) servlet container is recommended.
 
 ## Backup
 
