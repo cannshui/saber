@@ -12,3 +12,4 @@ src/main/webapp/WEB-INF/view/20*/
 
 # Platform dependency properties.
 src/main/resources/private.properties
+saber.db

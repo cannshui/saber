@@ -4,7 +4,9 @@ Saber Change Log.
 
 Bug Fixes:
 
- 7. Upgrade jackson.
+ 7. Add new "tomcat" tag.
+ 8. Refactor foot and article list styles.
+ 9. Upgrade jackson.
 
 ======================= Saber 2.0.0 =======================
 

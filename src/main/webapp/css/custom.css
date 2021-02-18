@@ -40,11 +40,10 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 
 /* index page style start. */
 .article { margin-top: 20px; border: 1px solid lightblue; padding: 10px; border-radius: 5px; }
-.article .a-title { margin: 0px; height: 25px; line-height: 25px; height: 25px; }
+.article .a-title { margin: 0px; height: 25px; line-height: 25px; }
 .article .a-author { font-weight: normal; font-size: 12px; margin: 5px auto; }
-.article .a-full-link { font-size: 12px; margin: 5px auto; }
-.article .article-tag span { display: inline-block; } 
-.article .a-other { font-size: 12px; }
+.article .article-tag span { display: inline-block; }
+.article .a-other { font-size: 12px; margin-top: 5px; }
 .article .a-other .a-o-left { display: inline-block; text-align: left; width: 48%; }
 .article .a-other .a-o-left .a-type {
     display: inline-block; width: 40px; height: 20px; line-height: 20px; background-color: #405490;
