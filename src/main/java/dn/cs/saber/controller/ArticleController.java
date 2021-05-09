@@ -115,6 +115,16 @@ public class ArticleController {
     }
 
     /**
+     * Refresh tag caches.
+     */
+    @RequestMapping(value = "tags/refresh", method = RequestMethod.POST, headers = {"Accept=application/json"})
+    @ResponseBody
+    public RespStatus<List<Tag>> refreshTags() {
+        List<Tag> tags = this.articleDao.getTags();
+        return RespEnum.custom(RespEnum.OK, tags);
+    }
+
+    /**
      * Show create article view.
      */
     @RequestMapping("/article/new")
