@@ -58,9 +58,9 @@ body { font-size: 14px !important; font-family: Helvetica, 'Microsoft YaHei', Ar
 .creator h5 { margin-top: 40px; }
 .creator input, .creator textarea { width: 100%; border: 0; background: #F2F2F2; border-radius: 3px; height: 24px; } 
 .creator .a-n-preview { margin: 0px; height: 140px; }
-.creator .tag { background: #F2F2F2; }
-.creator .tag span { margin-right: 10px; vertical-align: middle; display: inline-block; width: 35px; }
-.creator .tag input { margin: 0; width: 20px; height: 15px; vertical-align: middle; }
+.creator .option { background: #F2F2F2; }
+.creator .option span { margin-right: 10px; vertical-align: middle; display: inline-block; width: 35px; }
+.creator .option input { margin: 0; width: 20px; height: 15px; vertical-align: middle; }
  /* creator page style end. */
 
 /* detail page style start. */

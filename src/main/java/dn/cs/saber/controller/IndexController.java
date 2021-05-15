@@ -66,7 +66,7 @@ public class IndexController {
     public String getPagedArticlesByTag(@PathVariable("tag") int tag,
                                         @PathVariable("page") int page,
                                         @ModelAttribute PageData<Article> pageData, Model model) {
-        pageData = this.articleDao.getPagedArticlesByCat(pageData, null, tag);
+        pageData = this.articleDao.getPagedArticlesByCondition(pageData, null, tag);
         model.addAttribute("pageData", pageData);
         return "index";
     }
@@ -79,7 +79,7 @@ public class IndexController {
     public String getPagedArticlesByType(@PathVariable("type") int type,
                                          @PathVariable("page") int page,
                                          @ModelAttribute PageData<Article> pageData, Model model) {
-        pageData = this.articleDao.getPagedArticlesByCat(pageData, type, null);
+        pageData = this.articleDao.getPagedArticlesByCondition(pageData, type, null);
         model.addAttribute("pageData", pageData);
         return "index";
     }

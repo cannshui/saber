@@ -47,7 +47,8 @@ CREATE TABLE board (
 
 CREATE TABLE tag (
     id INTEGER PRIMARY KEY,
-    name VARCHAR(10) NOT NULL
+    name VARCHAR(10) NOT NULL,
+    count INTEGER NOT NULL DEFAULT 0
 );
 
 -- Use trigger for count accumulation.

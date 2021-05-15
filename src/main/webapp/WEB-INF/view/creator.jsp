@@ -36,30 +36,35 @@ $(function() {
     <div class="dncs-body clearfix">
         <div class="left creator">
             <form id="form" action="${root}/article/new" method="POST" enctype="multipart/form-data">
-                <h5>文章标题</h5>
-                <input id="title" class="a-n-title" name="title" type="text" value="" />
+                <h5>标题</h5>
+                <input id="title" class="a-n-title" name="title" type="text" value="${article.title}" />
                 <h5>简介</h5>
-                <textarea id="preview" class="a-n-preview" name="preview" rows="" cols=""></textarea>
-                <h5 id="tag">TAG</h5>
-                <div class="tag">
-                    <input name="type" type="radio" value="1" checked="checked" /><span>原创</span>
-                    <input name="type" type="radio" value="2" /><span>译文</span>
+                <textarea id="preview" class="a-n-preview" name="preview" rows="" cols="">${article.preview}</textarea>
+                <h5 id="tag">选项</h5>
+                <div class="option">
+                    <input name="type" type="radio" value="1" <c:if test="${article.type == 1}">checked="checked"</c:if> /><span>原创</span>
+                    <input name="type" type="radio" value="2" <c:if test="${article.type == 2}">checked="checked"</c:if> /><span>译文</span>
                     <br />
                     <c:forEach items="${tags}" var="tag" varStatus="vs">
-                        <input class="a-n-tag" name="tag" type="checkbox" value="${tag.id}" /><span>${tag.name}</span>
+                        <input class="a-n-tag" name="tag" type="checkbox" value="${tag.id}"
+                                <c:forEach items="${article.tag.split(',')}" var="chosenTag">
+                                    <fmt:parseNumber var="chosenTagId" value="${chosenTag}" integerOnly="true" />
+                                    <c:if test="${chosenTagId == tag.id}">checked="checked"</c:if>
+                                </c:forEach>
+                        /><span>${tag.name}</span>
                         <c:if test="${vs.count % 10 == 0}"><br /></c:if>
                     </c:forEach>
                 </div>
-                <h5>上传稿件</h5>
+                <h5>稿件</h5>
                 <input id="mdFile" class="a-n-title" name="mdFile" type="file" value=""/>
                 <div class="poster">
                     <div class="form-group">
                         <label for="userName">你的名字</label>
-                        <input id="userName" class="f-g-i-box" name="author.name" type="text" placeholder="你的名字" title="Enter your prefer name." value=""/>
+                        <input id="userName" class="f-g-i-box" name="author.name" type="text" placeholder="你的名字" title="Enter your prefer name." value="${article.author.name}"/>
                     </div>
                     <div class="form-group">
                         <label for="userName">你的邮箱</label>
-                        <input id="userEmail" class="f-g-i-box" name="author.email" type="text" placeholder="你的邮箱" title="Enter your real email." value=""/>
+                        <input id="userEmail" class="f-g-i-box" name="author.email" type="text" placeholder="你的邮箱" title="Enter your real email." value="${article.author.email}"/>
                     </div>
                     <div class="form-group">
                         <input id="submitBtn" class="submit-btn" type="submit" value="发表">

@@ -11,41 +11,36 @@
  *             page: current page,
  *             total: total number,
  *             size: page size.
- *             url: url binded to page link.
  */
 function PageBar(config) {
     this.page = config.page;
     this.total = config.total;
     this.size = config.size;
     this.last = parseInt(this.total / this.size);
-    if (config.url) {
-        this.url = config.url;
-    } else {
-        var url = window.location.href;
-        var i = url.lastIndexOf('/');
-        var cP = parseInt(url.substring(i + 1, url.length));
-        if (cP == this.page) {
-            this.url = url.substring(0, i + 1);
-        } else {
-            this.url = url + '/';
-        }
-    }
     if (this.total % this.size != 0) {
         this.last += 1;
+    }
+    var url = window.location.href;
+    // if root index, add "index/" for pagination
+    if (url.indexOf('index') == -1) {
+        this.pageUrlPrefix = url + 'index/';
+    } else {
+        // contents before last "/" is page url prefix
+        var i = url.lastIndexOf('/');
+        this.pageUrlPrefix = url.substring(0, i + 1);
     }
 
     this.render = function() {
         var s = '';
         for (var i = 1; i <= this.last; i++) {
             if (i != this.page) {
-                s += '<a href="' + this.url + '' + i + '">' + i + '</a> ';
+                s += '<a href="' + this.pageUrlPrefix + i + '">' + i + '</a> ';
             } else {
-                s += '<a class="p-current" href="' + this.url + i + '">' + i + '</a> ';
+                s += '<a class="p-current" href="' + this.pageUrlPrefix + i + '">' + i + '</a> ';
             }
         }
         $(s).appendTo($('.page-bar'));
     }
-
 }
 
 /**

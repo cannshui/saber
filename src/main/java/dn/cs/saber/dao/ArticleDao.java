@@ -31,7 +31,7 @@ public interface ArticleDao {
      * @param tag      tag
      * @return PageData
      */
-    PageData<Article> getPagedArticlesByCat(PageData<Article> pageData, Integer type, Integer tag);
+    PageData<Article> getPagedArticlesByCondition(PageData<Article> pageData, Integer type, Integer tag);
 
     /**
      * Query the specific article by primary key id.
@@ -94,17 +94,25 @@ public interface ArticleDao {
      */
     void addComment(Comment comment);
 
+
+    /**
+     * Get all supported tags in database.
+     *
+     * @return Tag List
+     */
+    List<Tag> getAllTags();
+
     /**
      * Query all tags from table. And cache the result.
      *
-     * @return List List
+     * @return Tag List
      */
     List<Tag> getTags();
 
     /**
      * Just return the cached tags.
      *
-     * @return List List
+     * @return Tag List
      */
     List<Tag> getCachedTags();
 

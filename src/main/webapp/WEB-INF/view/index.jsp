@@ -6,10 +6,10 @@
 <%@ include file="/WEB-INF/view/decorator/common.jsp" %>
 <script type="text/javascript">
 $(function() {
-    new PageBar({total: ${pageData.total}, page: ${pageData.page}, size: ${pageData.size}, url: '${root}/index/'}).render();
+    new PageBar({total: ${pageData.total}, page: ${pageData.page}, size: ${pageData.size}}).render();
 });
 </script>
-<title>Index</title>
+<title>Nen Den's BLOG</title>
 </head>
 <body>
 <div class="container">

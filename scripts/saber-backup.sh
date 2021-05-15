@@ -17,4 +17,4 @@ tar -zvcf ${backup_name}.tar.gz ${backup_name}
 # clear
 rm -rf ${backup_name}
 
-echo Succeed to backup ${backup_name}
+echo Succeed to backup, file: /var/backup/${backup_name}.tar.gz

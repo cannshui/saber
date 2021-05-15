@@ -129,8 +129,7 @@ public class ArticleController {
      */
     @RequestMapping("/article/new")
     public String getCreatorView(Model model) {
-        List<Tag> tags = this.articleDao.getCachedTags();
-        model.addAttribute("tags", tags);
+        model.addAttribute("tags", this.articleDao.getAllTags());
         return "creator";
     }
 
@@ -146,20 +145,24 @@ public class ArticleController {
         if (file.isEmpty()) {
             RespStatus<String> resp = RespEnum.custom(RespEnum.LR, "File content can not be empty.");
             model.addAttribute("resp", resp);
-            return "creator";
+            model.addAttribute("article", article);
+            return getCreatorView(model);
         }
         if (file.getSize() < 2048) {
             RespStatus<String> resp = RespEnum.custom(RespEnum.LTL, "Are you sure this file size is okay?");
             model.addAttribute("resp", resp);
-            return "creator";
+            model.addAttribute("article", article);
+            return getCreatorView(model);
         }
         User author = article.getAuthor();
         author.setIp(getClientIpAddress(request));
         RespStatus<String> resp = this.userDao.checkUser(author);
         if (resp.getCode() != 200) {
             model.addAttribute("resp", resp);
-            return "creator";
+            model.addAttribute("article", article);
+            return getCreatorView(model);
         }
+
         this.articleDao.addArticle(article);
         int id = article.getId();
 

@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -36,11 +37,13 @@ import dn.cs.saber.vo.PageData;
 @Repository
 public class ArticleDaoImpl implements ArticleDao {
 
-    private static final String SELECT_TAGS_SQL = "select * from tag order by random()";
-    private static final String SELECT_ARTICLE_SQL = "select * from article where id = ?";
+    private static final String SELECT_ALL_TAGS_SQL = "select id, name from tag";
+    private static final String SELECT_TAGS_SQL = "select * from tag where count > 0";
+    private static final String INCREASE_TAG_COUNT_SQL = "update tag set count = count + 1 where id = ?";
+    private static final String SELECT_ONE_ARTICLE_SQL = "select * from article where id = ?";
     private static final String SELECT_ARTICLE_COUNT_SQL = "select count(*) from article";
-    private static final String SELECT_LIMIT_ARTICLE_SQL = "select * from article order by uts desc limit ?, ?";
-    private static final String SELECT_LIMIT_ARTICLE_BY_CAT_SQL = "select * from article ${cat} order by uts desc limit ?, ?";
+    private static final String SELECT_ARTICLE_SQL = "select * from article";
+    private static final String LIMIT_ARTICLE_SQL = " order by uts desc limit ?, ?";
     private static final String INSERT_ARTICLE_SQL = "insert into article (title, author, preview, type, tag) values (?, ?, ?, ?, ?)";
     private static final String INCREASE_ARTICLE_HIT_COUNT_SQL = "update article set hit_count = hit_count + 1 where id = ?";
     private static final String INCREASE_ARTICLE_READ_COUNT_SQL = "update article set read_count = read_count + 1 where id = ?";
@@ -59,7 +62,7 @@ public class ArticleDaoImpl implements ArticleDao {
 
     @Override
     public Article getArticle(int id) {
-        Article article = DataAccessUtils.singleResult(this.jdbcTemplate.query(SELECT_ARTICLE_SQL, new Object[]{id}, new ArticleRowMapper()));
+        Article article = DataAccessUtils.singleResult(this.jdbcTemplate.query(SELECT_ONE_ARTICLE_SQL, new Object[]{id}, new ArticleRowMapper()));
         completeArticle(article);
         return article;
     }
@@ -70,38 +73,46 @@ public class ArticleDaoImpl implements ArticleDao {
         if (total == 0) {
             return pageData;
         }
-        List<Article> articles = this.jdbcTemplate.query(SELECT_LIMIT_ARTICLE_SQL, new Object[]{pageData.getIndex(), pageData.getSize()}, new ArticleRowMapper());
+        List<Article> articles = this.jdbcTemplate.query(
+                SELECT_ARTICLE_SQL + LIMIT_ARTICLE_SQL,
+                new Object[]{pageData.getIndex(), pageData.getSize()},
+                new ArticleRowMapper()
+        );
         articles.forEach(this::completeArticle);
-        setArticleTags(articles);
         pageData.setTotal(total);
         pageData.setDatas(articles);
         return pageData;
     }
 
     @Override
-    public PageData<Article> getPagedArticlesByCat(PageData<Article> pageData, Integer type, Integer tag) {
-        String catSQL = " where";
+    public PageData<Article> getPagedArticlesByCondition(PageData<Article> pageData, Integer type, Integer tag) {
+        StringBuilder conditionSqlBuilder = new StringBuilder();
+        conditionSqlBuilder.append(" where");
         List<Object> args = new ArrayList<>(4);
         if (type != null) {
-            catSQL = catSQL + " type = ?";
+            conditionSqlBuilder.append(" type = ?");
             args.add(type);
         }
         if (tag != null) {
             if (type != null) {
-                catSQL = catSQL + " and";
+                conditionSqlBuilder.append(" and");
             }
-            catSQL = catSQL + " tag like ?";
+            conditionSqlBuilder.append(" tag like ?");
             args.add(String.format("%%:%s:%%", tag));
         }
-        Integer total = this.jdbcTemplate.queryForObject(SELECT_ARTICLE_COUNT_SQL + catSQL, args.toArray(), Integer.class);
+        String condition = conditionSqlBuilder.toString();
+        Integer total = this.jdbcTemplate.queryForObject(SELECT_ARTICLE_COUNT_SQL + condition, args.toArray(), Integer.class);
         if (total == 0) {
             return pageData;
         }
         args.add(pageData.getIndex());
         args.add(pageData.getSize());
-        List<Article> articles = this.jdbcTemplate.query(SELECT_LIMIT_ARTICLE_BY_CAT_SQL.replace("${cat}", catSQL), args.toArray(), new ArticleRowMapper());
+        List<Article> articles = this.jdbcTemplate.query(
+                SELECT_ARTICLE_SQL + condition + LIMIT_ARTICLE_SQL,
+                args.toArray(),
+                new ArticleRowMapper()
+        );
         articles.forEach(this::completeArticle);
-        setArticleTags(articles);
         pageData.setTotal(total);
         pageData.setDatas(articles);
         return pageData;
@@ -110,17 +121,22 @@ public class ArticleDaoImpl implements ArticleDao {
     @Override
     public void addArticle(Article article) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
+        String tag = article.getTag();
         jdbcTemplate.update(conn -> {
             PreparedStatement ps = conn.prepareStatement(INSERT_ARTICLE_SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, article.getTitle());
             ps.setInt(2, article.getAuthor().getId());
             ps.setString(3, article.getPreview());
             ps.setInt(4, article.getType());
-            ps.setString(5, ":" + article.getTag().replace(",", "::") + ":");
+            ps.setString(5, ":" + tag.replace(",", "::") + ":");
             return ps;
         }, keyHolder);
         int id = keyHolder.getKey().intValue();
         article.setId(id);
+        Arrays.stream(tag.split(","))
+                .map(Integer::parseInt)
+                .forEach(e -> this.jdbcTemplate.update(INCREASE_TAG_COUNT_SQL, e));
+        // refresh tags
         getTags();
     }
 
@@ -214,17 +230,13 @@ public class ArticleDaoImpl implements ArticleDao {
     }
 
     @Override
-    public List<Tag> getCachedTags() {
-        return tags;
+    public List<Tag> getAllTags() {
+        return this.jdbcTemplate.query(SELECT_ALL_TAGS_SQL, BeanPropertyRowMapper.newInstance(Tag.class));
     }
 
-    /**
-     * Set tags for articles manually.
-     */
-    private void setArticleTags(List<Article> articles) {
-        for (Article article : articles) {
-            setArticleTag(article);
-        }
+    @Override
+    public List<Tag> getCachedTags() {
+        return tags;
     }
 
     private void completeArticle(Article article) {

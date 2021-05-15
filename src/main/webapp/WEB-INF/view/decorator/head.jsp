@@ -3,7 +3,7 @@
 <div class="dncs-head">
     <h3 class="h3-title h-logo" title="我们所过的每个平凡的日常，也许就是连续发生的奇迹...">
         <span class="h-l-nichijou"></span>
-        <a href="${root}/">Saber::记录我想记录的 :)</a>
+        <a href="${root}/">日常 记录我想记录的 :)</a>
     </h3>
     <div class="menu">
         <ul>
@@ -20,8 +20,9 @@
 <script type="text/javascript">
 $(function() {
     var tags = JSON.parse(localStorage.getItem('saber-tags'));
-    if (tags) {
-        console.log('Clear it by yourself ^_^.');
+    var cacheTagsTime = JSON.parse(localStorage.getItem('saber-tags-time'))
+    if (tags && cacheTagsTime && (new Date().getTime() - cacheTagsTime) < 24 * 60 * 60 * 1000) {
+        console.log('Last tags cache time in localStorage: ' + new Date(cacheTagsTime));
         renderTags(tags);
     } else {
         $.get('${root}/tags', function(resp) {
@@ -31,6 +32,7 @@ $(function() {
             }
             var tags = resp.data;
             renderTags(tags);
+            localStorage.setItem('saber-tags-time', new Date().getTime() + '');
             localStorage.setItem('saber-tags', JSON.stringify(tags));
         });
     }
@@ -40,7 +42,10 @@ $(function() {
         var s = '';
         for (var i = 0, l = tags.length; i < l; i++) {
             var tag = tags[i];
-            s += '<a href="${root}/index/tag/' + tag.id + '/page/1">' + tag.name + '</a>';
+            s += '<a href="${root}/index/tag/' + tag.id + '/page/1">' + tag.name + '(' + tag.count + ')' + '</a>';
+            if ((i + 1) % 16 === 0) {
+                s += '<br>';
+            }
         }
         $(s).appendTo(jTags);
         /* after render, do bind */

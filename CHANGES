@@ -1,12 +1,19 @@
 Saber Change Log.
 
+======================= Saber 2.1.0 =======================
+
+New Features:
+
+ * Add article number for tags.
+ * Optimize create article operation.
+ * Performance optimization.
+
 ======================= Saber 2.0.1 =======================
 
 Bug Fixes:
 
- 7. Add new "tomcat" tag.
- 8. Refactor foot and article list styles.
- 9. Upgrade jackson.
+ 7. Refactor foot and article list styles.
+ 8. Upgrade jackson.
 
 ======================= Saber 2.0.0 =======================
 
