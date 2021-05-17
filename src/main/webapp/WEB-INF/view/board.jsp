@@ -6,7 +6,8 @@
 <%@ include file="/WEB-INF/view/decorator/common.jsp" %>
 <script type="text/javascript">
 $(function() {
-    new PageBar({total: ${pageData.total}, page: ${pageData.page}, size: ${pageData.size}}).render();
+    new PageBar({total: ${pageData.total}, page: ${pageData.page}, size: ${pageData.size}, pageUrlPrefix: '${root}/board/'}).render();
+
     DNCS.set('_jcb', $('#commentBox')).set('_jun', $('#userName')).set('_jue', $('#userEmail'))
         .set('_jcc', $("#commentCnt")).set('_ab', true).set('_jcs', $('#comments'))
         .set('_curl', '${root}/board');

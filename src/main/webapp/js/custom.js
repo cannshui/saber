@@ -11,6 +11,7 @@
  *             page: current page,
  *             total: total number,
  *             size: page size.
+ *             pageUrlPrefix: page url prefix, for render full page urls
  */
 function PageBar(config) {
     this.page = config.page;
@@ -20,15 +21,7 @@ function PageBar(config) {
     if (this.total % this.size != 0) {
         this.last += 1;
     }
-    var url = window.location.href;
-    // if root index, add "index/" for pagination
-    if (url.indexOf('index') == -1) {
-        this.pageUrlPrefix = url + 'index/';
-    } else {
-        // contents before last "/" is page url prefix
-        var i = url.lastIndexOf('/');
-        this.pageUrlPrefix = url.substring(0, i + 1);
-    }
+    this.pageUrlPrefix = config.pageUrlPrefix;
 
     this.render = function() {
         var s = '';

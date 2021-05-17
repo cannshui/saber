@@ -6,7 +6,17 @@
 <%@ include file="/WEB-INF/view/decorator/common.jsp" %>
 <script type="text/javascript">
 $(function() {
-    new PageBar({total: ${pageData.total}, page: ${pageData.page}, size: ${pageData.size}}).render();
+    var url = window.location.href;
+    var pageUrlPrefix;
+    // if root index, add "index/" for pagination
+    if (url.indexOf('index') == -1) {
+        pageUrlPrefix = url + 'index/';
+    } else {
+        // contents before last "/" is page url prefix
+        var i = url.lastIndexOf('/');
+        pageUrlPrefix = url.substring(0, i + 1);
+    }
+    new PageBar({total: ${pageData.total}, page: ${pageData.page}, size: ${pageData.size}, pageUrlPrefix: pageUrlPrefix}).render();
 });
 </script>
 <title>Nen Den's BLOG</title>
