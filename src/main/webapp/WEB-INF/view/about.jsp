@@ -19,7 +19,7 @@
                 <li class="a-i-title">基于 Markdown</li>
                 <li class="a-i-ex">
                     <ul>
-                        <li>基于 Markdown 标准语法编写文章，然后生成 HTML 文件。
+                        <li>基于 Markdown 标准语法编写文章，然后生成 HTML 文件（推荐使用 pandoc）。
                         <li>去掉 <code>&lt;html&gt;</code> 标记，整个 <code>&lt;head&gt;</code> 标记内容，和 <code>&lt;body&gt;</code> 标记。
                             即，<strong>只保留</strong> <code>&lt;body&gt;</code> 内的正文内容，目的在于<strong>避免</strong>样式冲突。
                         <li>后续版本中考虑接受 Markdown 输入，如评论、留言区。

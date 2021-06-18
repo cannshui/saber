@@ -60,6 +60,7 @@ $(function() {
                 <jsp:include page="${articlePath}/${article.id}.html" />
                 <div class="author-bar">
                     <span>${article.author.name}</span>
+                    <span><c:if test="${article.type == 1}">原创</c:if><c:if test="${article.type == 2}">译文</c:if></span>
                     <span><fmt:formatDate pattern="yyyy-MM-dd" value="${article.publishTime}" /> Create.</span>
                     <span><fmt:formatDate pattern="yyyy-MM-dd" value="${article.rePublishTime}" /> Update.</span>
                     <span><a class="a-b-readCount">${article.readCount}</a> 次阅读</span>

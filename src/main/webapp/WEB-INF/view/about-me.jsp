@@ -16,16 +16,8 @@
             <ul>
                 <li class="a-i-title">一个程序员</li>
                 <li class="a-i-ex">作为一个蹩脚的程序员，相当成功。</li>
-                <!--
-                <li class="a-i-title">K.I.S.S.er</li>
-                <li class="a-i-ex">做到 K.I.S.S 好难，需要有很高的水平，才能将事情变得 Simple 和 Stupid。</li>
-                <li class="a-i-title">一个动漫迷</li>
-                <li class="a-i-ex">请叫我，<span style="color: white;">伪宅·真·声控·梦想·一般男性</span>。</li>
-                <li class="a-i-title">有只喵</li>
-                <li class="a-i-ex">半夜，跳到我床头的那一生喵，啊，我真是<span title="《黑之契约者》琥珀思念黑时所说">“被它打败了”</span>。</li>
-                -->
                 <li class="a-i-title">Contact me</li>
-                <li class="a-i-ex"><p><a target="_blank" href="http://weibo.com/3708729994">cannshui</a></p></li>
+                <li class="a-i-ex"><p><a target="_blank" href="https://github.com/cannshui">cannshui</a></p></li>
             </ul>
             </div>
         </div>
