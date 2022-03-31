@@ -14,7 +14,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <appName>saber</appName>
-        <spring.version>4.3.24.RELEASE</spring.version>
+        <spring.version>5.3.18</spring.version>
     </properties>
 
     <dependencies>
